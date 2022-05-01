@@ -71,7 +71,7 @@ public class Grid : ScriptableObject
         var center = new Vector2((float)height / 2 - 0.5f, (float)width / 2 - 0.5f);
 
         Camera.main.transform.position = new Vector3(center.x, center.y, -5);
-        Camera.main.orthographicSize = (Mathf.Max(height, width) / 2 + 1)/2;
+        Camera.main.orthographicSize = ((Mathf.Max(height, width) / 2) + 3)/2;
     }
 
     internal int GetHeight()

@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         PlayerPrefs.SetInt("level", 1);
+        PlayerPrefs.SetInt("size", 10);
     }
     public void PlayGame()
     {

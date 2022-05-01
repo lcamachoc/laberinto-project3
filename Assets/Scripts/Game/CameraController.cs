@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        float ypos = (player.transform.position.y / PlayerPrefs.GetInt("size")) * 5 + 2.5f;
+        float ypos = (player.transform.position.y / PlayerPrefs.GetInt("size")) * ((PlayerPrefs.GetInt("size")+1)/2) + 3f;
         transform.position = new Vector3(transform.position.x, ypos, transform.position.z);
     }
 }

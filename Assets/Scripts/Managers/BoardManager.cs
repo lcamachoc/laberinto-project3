@@ -16,12 +16,16 @@ public class BoardManager : MonoBehaviour
     [SerializeField] private GameObject BorderPrefab;
 
     private GameObject padre;
-    private Grid grid;
+    [HideInInspector]
+    public Grid grid;
     private Player player;
 
     private void Awake()
     {
         Instance = this;
+        Width = PlayerPrefs.GetInt("size");
+        Height = PlayerPrefs.GetInt("size");
+        ObstacleNumber = PlayerPrefs.GetInt("obstacles");
     }
 
     private void Start()
@@ -35,9 +39,6 @@ public class BoardManager : MonoBehaviour
     }
     public void init(int enemyNumber)
     {
-        Width = PlayerPrefs.GetInt("size");
-        Height = PlayerPrefs.GetInt("size");
-        ObstacleNumber = PlayerPrefs.GetInt("obstacles");
         padre = new GameObject("Board");
         grid = new Grid(Width, Height, 1, CellPrefab, ObstaclePrefab, ObstacleNumber, padre);
         while (PathManager.Instance.FindPath(grid, 0, 0, Width - 1, Height - 1) == null)
